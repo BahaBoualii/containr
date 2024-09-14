@@ -9,10 +9,10 @@ import (
 )
 
 func main() {
-	p := tea.NewProgram(tui.InitialModel())
-
-	if _, err := p.Run(); err != nil {
-		fmt.Printf("Alas, there's been an error: %v", err)
+	m := tui.New()
+	p := tea.NewProgram(m)
+	if err := p.Start(); err != nil {
+		fmt.Println(err)
 		os.Exit(1)
 	}
 }
